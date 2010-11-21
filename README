@@ -1,7 +1,7 @@
-StackJS by Stéfano Stypulkowski
+StackJS by Stefano Stypulkowski
 
 StackJS provides a global object called Stack, which is useful to store values with alias.
 
-In the stack can be stored anything, link object, strings, arrays, numbers, etc.
+In the stack can be stored anything, since object to strings or arrays.
 
-The stack store all objects stored in it inside his class, providing global access without polluted the namespace.
+The stack store the items inside his namespace, providing global access without polluting the namespace.
