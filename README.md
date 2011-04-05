@@ -4,7 +4,8 @@
 >Any javascript value can be stored inside this stack.
 >So, when you need those values, they are ready to go ;]~~
 
-## Documentantion
+Documentantion
+==============
 
 .put()
 ------
@@ -19,9 +20,9 @@
     
 * Parameters:
 
-    ** object {<anything>}: ** anythings, seriously.
+    ** object {anything}: ** anythings, seriously.
     
-    ** id {<anything>}: ** a unique id to this position of the stack, can be anything, including undefined, if you pass some repeated id, its position will not be overwrited.
+    ** id {anything}: ** a unique id to this position of the stack, can be anything, including undefined, if you pass some repeated id, its position will not be overwrited.
     
     ** overwrite {boolean}: ** if you pass a third boolean parameter with true value within an some id that already in the stack, it position will be overwrited.
 
