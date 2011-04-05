@@ -24,7 +24,7 @@ Documentantion
     
     ** id {anything}: ** a unique id to this position of the stack, can be anything, including undefined, if you pass some repeated id, its position will not be overwrited.
     
-    ** overwrite {boolean}: ** if you pass a third boolean parameter with true value within an some id that already in the stack, it position will be overwrited.
+    ** overwrite {boolean}: ** if you pass true along some id that already in the stack, its position will be overwrited.
 
 > This is the main method from Stack, with which you will add elements on the stack.
 
