@@ -1,87 +1,115 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
-    <head>
-        <title>StackJS 1.1 usage</title>
-        
-        <style type="text/css">
-            *{
-                font-family:Tahoma,Arial;
-            }
-            thead{
-                font-size:18px;
-                background-color:#DDDDDD;
-            }
-            td{
-                padding:5px;
-            }
-            table{
-                margin:10px 2% 10px 2%;
-                width:96%;
-            }
-            .type{
-                font-size:12px;
-                color:#666666;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>StackJS 1.1 usage</h1>
-        <hr />
-        <table cellpadding="0" cellspacing="0" border="1">
-            <thead>
-                <tr>
-                    <td>Method</td>
-                    <td>Return</td>
-                    <td>Description</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td valign="top">.clear()</td>
-                    <td valign="top"><span class="type">{null}</span></td>
-                    <td valign="top">Clears all elements from the Stack.</td> 
-                </tr>
-                <tr>
-                    <td valign="top">.exile(<span class="type">{String}</span> alias)</td>
-                    <td valign="top"><span class="type">{*}</span> matched item</td>
-                    <td valign="top">Removes an item from the Stack and return it, matching by given alias</td>
-                </tr>
-                <tr>
-                    <td valign="top">.get(<span class="type">{String}</span> alias)</td>
-                    <td valign="top"><span class="type">{*}</span> matched item</td>
-                    <td valign="top">Returns some item matching by given alias.</td>
-                </tr>
-                <tr>
-                    <td valign="top">.put(<span class="type">{*}</span> object, <span class="type">{String}</span> alias*, <span class="type">{String}</span> option)</td>
-                    <td valign="top"><span class="type">{Boolean}</span> operation success</td>
-                    <td valign="top">Puts some item in the Stack. The alias must be unique and is mandatory, if the alias is duplicate, the item will be updated. Option can be 'nooverwrite' to don't update the item if the alias already exists.</td>
-                </tr>
-                <tr>
-                    <td valign="top">.remove(<span class="type">{String}</span> alias1, <span class="type">{String}</span> alias3, ..., <span class="type">{String}</span> aliasN)</td>
-                    <td valign="top"><span class="type">{Number}</span> amount of deletions</td>
-                    <td valign="top">Deletes items from the Stack using the given names.</td>
-                </tr>
-                <tr>
-                    <td valign="top">.reset()</td>
-                    <td valign="top"><span class="type">{null}</span></td>
-                    <td valign="top">Clears all elements and states from the Stack.</td>
-                </tr>
-                <tr>
-                    <td valign="top">.restore(<span class="type">{String}</span> state_name|<span class="type">{Number}</span> state_number)</td>
-                    <td valign="top"><span class="type">{null}</span></td>
-                    <td valign="top">Restores a previous saved state, Can be restored by its name or number. If none parameter is specified it restores the last valid state.</td>
-                </tr>
-                <tr>
-                    <td valign="top">.save(<span class="type">{String}</span> state_name)</td>
-                    <td valign="top"><span class="type">{null}</span></td>
-                    <td valign="top">Saves the current state of the Stack, the name is optional.</td>
-                </tr>
-                <tr>
-                    <td valign="top">.size()</td>
-                    <td valign="top"><span class="type">{Number}</span> amount of items</td>
-                    <td valign="top">Get the amount of items in the Stack.</td>
-                </tr>
-            </tbody>
-        </table>
-    </body>
+  <head>
+    <title>StackJS 1.4 usage</title>
+
+    <style type="text/css">
+      *{
+        font-family:arial;
+        margin:0px;
+        color:#333;
+      }
+      header{
+        background:#f2f2f8;
+        border-bottom:2px solid #333;
+        box-shadow:0px 0px 5px rgba(0,0,0,.5);
+      }
+      header h1{
+        padding:20px;
+        text-shadow:-1px -1px 0px #fff, 1px 1px 0px #fff;
+      }
+      table{
+        margin:20px 2%;
+        border:2px solid #333;
+        font-size:14px;
+        text-align:left;
+        border-collapse: collapse;
+        box-shadow:0px 0px 5px rgba(0,0,0,.5);
+      }
+      thead th{
+        background:#333;
+        color:#fff;
+      }
+      table td,
+      table th{
+        padding:5px;
+      }
+      table td{
+        border:1px solid #888;
+      }
+      table tr:nth-child(2n){
+        background:#efefef;
+      }
+      table tr > td:first-child{
+        width:30%;
+      }
+      table tr > td:nth-child(2){
+        width:20%;
+      }
+      table tr > td:last-child{
+        font-size:12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>StackJS 1.4 usage</h1>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Return</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>.clear()</td>
+          <td>&lt;null&gt;</td>
+          <td>Removes all items from Stack, but don't resets it states.</td> 
+        </tr>
+        <tr>
+          <td>.exile(&lt;*&gt; alias)</td>
+          <td>[&lt;*&gt; matched item|&lt;undefined&gt;]</td>
+          <td>Removes an item from the Stack and returns it, matching by given alias.</td>
+        </tr>
+        <tr>
+          <td>.get(&lt;String&gt; alias)</td>
+          <td>[&lt;*&gt; matched item|&lt;undefined&gt;]</td>
+          <td>Returns some item matching by given alias, but don't remove it from the Stack.</td>
+        </tr>
+        <tr>
+          <td>.put(&lt;*&gt; object, &lt;String&gt; alias*, &lt;Boolean&gt; overwrite)</td>
+          <td>&lt;Boolean&gt; operation success</td>
+          <td>Puts some item in the Stack. The alias must be unique and is mandatory, if the alias is duplicate, the item will be updated. If third parameter is set to false, repeated alias will not be overwrote.</td>
+        </tr>
+        <tr>
+          <td>.remove(&lt;*&gt; alias1, &lt;*&gt; alias2, ..., &lt;*&gt; aliasN)</td>
+          <td>&lt;Number&gt; amount of deletions</td>
+          <td>Deletes multiple items from the Stack and returns the number of deletions.</td>
+        </tr>
+        <tr>
+          <td>.reset()</td>
+          <td>&lt;undefined&gt;</td>
+          <td>Clears all elements and states from the Stack.</td>
+        </tr>
+        <tr>
+          <td>.restore([&lt;String&gt; stateAlais|&lt;undefined&gt;])</td>
+          <td>&lt;Boolean&gt; operation success</td>
+          <td>Restores a previous saved state. If no alias is defined, restores the last save point.</td>
+        </tr>
+        <tr>
+          <td>.save([&lt;String&gt; stateAlais|&lt;undefined&gt;])</td>
+          <td>&lt;undefined&gt;</td>
+          <td>Saves the current state of the Stack. If no alias is specified, it will saves on the top, otherwise it will save new or overwrite that alias.</td>
+        </tr>
+        <tr>
+          <td>.size()</td>
+          <td>&lt;Number&gt; amount of items</td>
+          <td>Returns the size of the Stack (a.k.a. Number of elements).</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>
