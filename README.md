@@ -7,24 +7,47 @@
 Documentantion
 ==============
 
-.put()
-------
+.put(value, alias, overwrite = true)
+------------------------------------
 
-* Stack.put(object, id)
+Sets some value on the stack, set thrid parameter to false to prevent data updating.
 
-* Stack.put(object, id, overwrite)
+.get(alias)
+-----------
 
-* Returns {boolean}:
+Returns value with given alias.
 
-    true, if the new element was added, false otherwise.
-    
-* Parameters:
+.exile(alias)
+-------------
 
-    ** object {anything}: ** anythings, seriously.
-    
-    ** id {anything}: ** a unique id to this position of the stack, can be anything, including undefined, if you pass some repeated id, its position will not be overwrited.
-    
-    ** overwrite {boolean}: ** if you pass true along some id that already in the stack, its position will be overwrited.
+Returns value with given alias and deletes it from Stack.
 
-> This is the main method from Stack, with which you will add elements on the stack.
+.remove(alias1, alias2, ..., aliasN)
+---------
 
+Removes many items from Stack, returning the amount of deletions.
+
+.clear()
+--------
+
+Removes all items from Stack.
+
+.reset()
+--------
+
+Removes all items from Stack, along with the save points.
+
+.size()
+-------
+
+Returns the Stack size.
+
+.save(alias?)
+-------------
+
+Creates a save point on Stack, it will hold all the Stack state at that time, and works like a backup. If same alias is specified more than one time, the save point will be overwrote. If no parameter is specified, a anonymous save point will be create.
+
+.restore(alias?)
+----------
+
+Restores a save point by its alias. If no alias is specified, last save point will be restored.
