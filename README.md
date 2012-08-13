@@ -1,4 +1,4 @@
-# StackJS 1.3 by Stefano Stypulkowski
+# StackJS 1.4 by Stefano Stypulkowski
 
 >StackJS provides a global object called Stack, which can store values with aliases.
 >Any javascript value can be stored inside this stack.
